@@ -1,64 +1,86 @@
-// Stack 자료구조를 이용한 괄호 문제
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<stdbool.h>
+// An input string is valid if:
 
-bool isValid(char *s) {
-    
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+bool isValid(char *s)
+{
+
     int len = strlen(s);
     char Stack[len];
-    int top=-1;
-    
-    for(int i=0;i<len;i++) {
+    int top = -1;
 
-        if(s[i]=='('||s[i]=='{'||s[i]=='[') {
-            Stack[++top]=s[i];
+    for (int i = 0; i < len; i++)
+    {
+
+        if (s[i] == '(' || s[i] == '{' || s[i] == '[')
+        {
+            Stack[++top] = s[i];
         } //push
-        else if(s[i]==')') {
-            if(Stack[top]=='(') {
+        else if (s[i] == ')')
+        {
+            if (Stack[top] == '(')
+            {
                 top--;
             }
-            else return false;
-        }//앞단계 확인하고 (면 pop, 아니면 return false
-        else if(s[i]=='}') {
-            if(Stack[top]=='{') {
+            else
+                return false;
+        } //앞단계 확인하고 (면 pop, 아니면 return false
+        else if (s[i] == '}')
+        {
+            if (Stack[top] == '{')
+            {
                 top--;
             }
-            else return false;
+            else
+                return false;
         }
-        else if(s[i]==']') {
-            if(Stack[top]=='[') {
+        else if (s[i] == ']')
+        {
+            if (Stack[top] == '[')
+            {
                 top--;
             }
-            else return false;
+            else
+                return false;
         }
 
-        if(i==len-1) {
-            if(top==-1) return true;
-            else return false;
+        if (i == len - 1)
+        {
+            if (top == -1)
+                return true;
+            else
+                return false;
         }
     }
-    
-    
+
     return false;
 }
 
-void main() {
+void main()
+{
 
     char *s = (char *)malloc(sizeof(char) * 10000);
     scanf("%s", s);
 
-    if (isValid(s)==true) {
+    if (isValid(s) == true)
+    {
         printf("true\n");
         free(s);
-        return ;
+        return;
     }
-    else {
+    else
+    {
         printf("false\n");
         free(s);
-        return ;
+        return;
     }
 
     free(s);
