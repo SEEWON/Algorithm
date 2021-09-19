@@ -28,7 +28,7 @@ struct TreeNode *mergeTrees(struct TreeNode *root1, struct TreeNode *root2)
   if (!root1 && !root2)
     return NULL;
   else if (!root1)
-    return root2; //root1->val=0으로 했더니 오류 남
+    return root2;
   else if (!root2)
     return root1;
   struct TreeNode *new = newNode(root1->val + root2->val);
