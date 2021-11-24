@@ -5,7 +5,7 @@ using namespace std;
 int main(void)
 {
   int min, max;
-  int sqrArr[100];
+  int sqrArr[101];
   int res[100];
 
   cin >> min;
