@@ -1,35 +1,27 @@
 #include<iostream>
-#include<vector>
-#include<algorithm>
+#include<map>
 #include<string>
 
 using namespace std;
 
 int main(void) {
-  ios::sync_with_stdio(0);
-  cin.tie(0);
-  cout.tie(0);
-  vector <string> v;
+  ios::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);
+  map <string, int, greater<>> m;
   string name, state;
   int T;
   cin >> T;
   for(int i=0;i<T;i++) {
     cin >> name >> state;
-    if(state=="enter") v.push_back(name);
+    if(state=="enter") m[name]=1;
     else {
-      for(int j=0;j<v.size();j++) {
-        if(v[j]==name) {
-          v.erase(v.begin()+j);
-          break;
-          }
-      }
+      m[name]=0;
     }
   }
-  for(int i=0;i<v.size();i++) {
-    sort(v.rbegin(),v.rend());
-  }
-  for(int i=0;i<v.size();i++) {
-    cout << v[i] << '\n';
+  for(auto i=m.begin(); i!=m.end(); i++) {
+    if(i->second==1)
+    cout << i->first << '\n';
   }
   return 0;
 }
