@@ -16,7 +16,7 @@ int main(void) {
       if(str[j]=='b') res--;
       else res++;
     }
-    cout << "Data Set " << i+1 << ":\n" << res << endl;
+    cout << "Data Set " << i+1 << ":\n" << res << '\n' << endl;
   }
 
   return 0;

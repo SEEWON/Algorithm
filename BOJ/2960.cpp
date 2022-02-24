@@ -1,5 +1,5 @@
 #include<iostream>
-#include<vector>
+#include<set>
 using namespace std;
 
 int main(void) {
@@ -7,25 +7,36 @@ int main(void) {
   cin.tie(NULL);
   cout.tie(NULL);
   int n,k;
-  vector <int> v;
+  int flag=0;
+  set <int> s;
   cin >> n >> k;
   for(int i=2;i<n+1;i++) {
-    v.push_back(i);
+    s.insert(i);
   }
   int i=1;
-  int res;
+  int res=2;
+  int multi=2;
   while(1) {
-    //find(v.begin(),v.end(),number) 활용해서 찾거나..map써도 조을듯
-    //지우는 수 찾기
     if(i==k) {
       cout << res << endl;
       break;
     } else {
-
       i++;
+      s.erase(res);
+      for(auto it=s.begin();it!=s.end();it++) {
+        if(*it % multi==0) {
+          res = *it;
+          flag = 1;
+          break;
+        }
+      }
+      if(flag!=1) {
+        res=*s.begin();
+        multi=*s.begin();
+      }
+      flag=0;
     }
   }
-    
-
+ 
   return 0;
 }
