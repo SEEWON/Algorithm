@@ -15,10 +15,21 @@ pair<int, int> ans_case[6];
 int exit_code = 0;
 
 bool compare(pair<int, int> a, pair<int, int> b) {
+  /*
   if (a.second != b.second)
     return a.second < b.second;
   else
     return a.first < b.first;
+    */
+  if (a.second < b.second)
+    return true;
+  else if (a.second == b.second) {
+    if (a.first < b.first)
+      return true;
+    else
+      return false;
+  } else
+    return false;
 }
 
 int dfs(int row, int col, int direction) {
