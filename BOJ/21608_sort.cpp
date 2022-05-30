@@ -14,11 +14,10 @@ int checkIdx[401] = {0};
 
 bool compare(pair<pair<int, int>, pair<int, int>> a,
              pair<pair<int, int>, pair<int, int>> b) {
-  //이렇게 하면 안됨.
   if (a.second.first != b.second.first)
     return a.second.first < b.second.first;
   else
-    a.second.second < b.second.second;
+    return a.second.second < b.second.second;
   /*
   if (a.second.first < b.second.first)
     return true;
@@ -160,12 +159,12 @@ int main() {
   }
   cout << countSatis() << endl;
 
-  for (int i = 0; i < N; i++) {
-    for (int j = 0; j < N; j++) {
-      cout << arr[i][j] << ' ';
-    }
-    cout << endl;
-  }
+  // for (int i = 0; i < N; i++) {
+  //   for (int j = 0; j < N; j++) {
+  //     cout << arr[i][j] << ' ';
+  //   }
+  //   cout << endl;
+  // }
 
   return 0;
 }
