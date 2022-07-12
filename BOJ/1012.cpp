@@ -22,6 +22,7 @@ void resetField() {
   }
 }
 
+// 큐 안의 큐로, 카운트 하나 늘어난 건에 대해 진행 가능한만큼 BFS진행.
 void bfsInBfs() {
   while (!qq.empty()) {
     int currX = qq.front().first;
